@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Balloon</title>
+</head>
+<body>
+    <p>🎈</p>
+
+    <script>
+        'use strict';
+        const balloon = document.querySelector("p");
+
+             let bsize;
+                function setSize(newbsize) {
+                    bsize = newbsize;
+                    balloon.style.fontSize = bsize + "px";
+                }
+                setSize(30);
+   
+        const resizeBalloon = (evt) => {
+            evt.preventDefault();
+            if(evt.key === 'ArrowUp'){
+                if(bsize > 80){
+                    balloon.innerHTML = "&#128165;"
+                    //document.body.removeEventListener("keydown",resizeBalloon);
+                }else{
+                    setSize(bsize * 2.2)
+                    evt.preventDefault();
+                }
+            } else if (event.key == "ArrowDown") {
+                setSize(bsize * 1);
+                event.preventDefault();
+            }
+        };
+
+        document.addEventListener('keydown', resizeBalloon); 
+    </script>
+</body>
+</html>

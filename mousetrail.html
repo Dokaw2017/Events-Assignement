@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MouseTrail</title>
+</head>
+<body>
+        <style>
+            .trail {
+                /* className for the trail elements */
+                position: absolute;
+                height: 6px;
+                width: 6px;
+                border-radius: 3px;
+                background: teal;
+            }
+
+            html {
+                height: 100%;
+            }
+            body{
+            height: 100%;
+            }
+
+        </style>
+
+        <script>
+            'use strict';
+            // mousemove event
+
+            let i;
+
+            let points = [];
+
+            for(i = 0; i < 20; i++){
+                let chala = document.createElement("div");
+                    chala.className = "trail";
+                    document.body.appendChild(chala);
+                    points.push(chala);
+            }
+
+            let chalapoint = 0;
+            document.addEventListener('mousemove', (evt) => {
+                console.log('mouse coordinates: ', evt.pageX, evt.pageY);
+
+                let point = points[chalapoint];
+
+                point.style.left = (evt.pageX - 4) + 'px';
+                point.style.top = (evt.pageY - 4) + 'px';
+
+                chalapoint = (chalapoint + 1) % points.length;
+                // create new div element
+                // add class trail to div element
+                // set top and left properties to mouse coordinates
+                // append the div to body
+                // push div to divArray
+                // if divArray length bigger than eg. 20
+                // remove first item from array and from body element// your code here
+            });
+        </script>
+</body>
+</html>
